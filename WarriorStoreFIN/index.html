@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warrior Store - Tienda de Ropa Online</title>
+    <link rel="icon" href="img/WarriorStoreLogo.ico">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Warrior Store</div>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Hombres</a></li>
+                <li><a href="#">Mujeres</a></li>
+                <li><a href="#">Niños</a></li>
+                <li><a href="#">Ofertas</a></li>
+            </ul>
+        </nav>
+        <div class="user-actions">
+            <a href="#" class="login-btn" id="login-btn">Iniciar Sesión</a>
+            <a href="#" class="register-btn" id="register-btn">Registrarse</a>
+            <div class="cart-icon" id="cart-icon">
+                🛒
+                <span class="cart-count" id="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <h1>Nuestra Colección</h1>
+        
+        <div class="products-grid" id="products-grid">
+            <!-- Productos se cargarán dinámicamente con JavaScript -->
+        </div>
+    </main>
+    
+    <!-- Modal del Carrito -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-cart">&times;</span>
+            <h2>Tu Carrito</h2>
+            <div id="cart-items-container">
+                <!-- Los items del carrito se cargarán aquí -->
+                <p id="empty-cart-message">Tu carrito está vacío</p>
+            </div>
+            <div class="cart-total">
+                Total: $<span id="cart-total">0</span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn">Finalizar Compra</button>
+        </div>
+    </div>
+    
+    <!-- Modal de Login -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-login">&times;</span>
+            <h2>Iniciar Sesión</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Contraseña</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit" class="form-submit">Ingresar</button>
+            </form>
+            <div class="form-toggle">
+                ¿No tienes cuenta? <a href="#" id="show-register">Regístrate aquí</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal de Registro -->
+    <div class="modal" id="register-modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-register">&times;</span>
+            <h2>Registrarse</h2>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="register-name">Nombre Completo</label>
+                    <input type="text" id="register-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Contraseña</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-address">Dirección</label>
+                    <input type="text" id="register-address" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-phone">Teléfono</label>
+                    <input type="tel" id="register-phone" required>
+                </div>
+                <button type="submit" class="form-submit">Registrarse</button>
+            </form>
+            <div class="form-toggle">
+                ¿Ya tienes cuenta? <a href="#" id="show-login">Inicia sesión aquí</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal de Checkout -->
+    <div class="modal" id="checkout-modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-checkout">&times;</span>
+            <h2>Finalizar Compra</h2>
+            <form id="checkout-form">
+                <div class="form-group">
+                    <label for="checkout-name">Nombre Completo</label>
+                    <input type="text" id="checkout-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkout-email">Email</label>
+                    <input type="email" id="checkout-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkout-address">Dirección de Envío</label>
+                    <input type="text" id="checkout-address" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkout-phone">Teléfono</label>
+                    <input type="tel" id="checkout-phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkout-card">Número de Tarjeta</label>
+                    <input type="text" id="checkout-card" required>
+                </div>
+                <div class="form-group" style="display: flex; gap: 1rem;">
+                    <div style="flex: 1;">
+                        <label for="checkout-expiry">Fecha de Expiración</label>
+                        <input type="text" id="checkout-expiry" placeholder="MM/AA" required>
+                    </div>
+                    <div style="flex: 1;">
+                        <label for="checkout-cvv">CVV</label>
+                        <input type="text" id="checkout-cvv" required>
+                    </div>
+                </div>
+                <button type="submit" class="checkout-btn">Confirmar Compra</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Modal de Confirmación -->
+    <div class="modal" id="confirmation-modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-confirmation">&times;</span>
+            <h2>¡Compra Exitosa!</h2>
+            <p id="confirmation-message">Gracias por tu compra. Te hemos enviado un correo con los detalles de tu pedido.</p>
+            <button class="checkout-btn" id="confirmation-close">Aceptar</button>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 Warrior Store - Todos los derechos reservados</p>
+        <p>Contacto: info@WarriorStore.com</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
